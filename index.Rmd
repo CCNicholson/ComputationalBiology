@@ -9,7 +9,7 @@ output:
 
 ### Homework
 
-* [Homework 1](HW1.Rmd)
+* [Homework 1](HW1.html)
 * Homework 2
 * Homework 3
 * Homework 4
