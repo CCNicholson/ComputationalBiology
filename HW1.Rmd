@@ -1,0 +1,41 @@
+---
+title: "HW1"
+author: "C. Nicholson"
+date: "8/29/2018"
+output: html_document
+---
+
+
+require(ggplot2)
+require(gridExtra)
+
+#### OBJECTIVE 1 ####
+
+Ux = 1000:1
+
+Uy1 = 0.5*exp(-.0015 *Ux) 
+Uy2 = 0.5*exp(-.007 *Ux) 
+
+df1 = data.frame(x = Ux, y = Uy1)
+df1$loc = "Urban"
+
+df2 = data.frame(x= Ux, y = Uy2)
+df2$loc = "Natural"
+
+df = rbind(df1, df2)
+
+
+ggplot(df, aes(x = x, y =y)) + 
+  geom_line(aes(color = loc), lwd = .75) +
+  scale_color_manual(values = c("#399e6b", "#666666"))+
+  xlab("Geographic distance (km)") + 
+  ylab("Community similarity") +
+  theme_tufte(base_family = "GillSans") +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=1),
+        legend.position="none",
+        legend.title	= element_blank(),
+        #legend.position = c(0.8, 0.8),
+        axis.text.x    =element_text(size = 14, angle =45, hjust=1, vjust = 1),
+        axis.text.y    =element_text(size = 14, vjust = 0.5, hjust=1),
+        axis.title.x   = element_text(size=16),
+        axis.title.y  = element_text(size=16))
