@@ -1,0 +1,12 @@
+---
+title: "Computational Biology"
+author: "C. Nicholson"
+date: "8/29/2018"
+output: 
+  html_document: 
+    theme: cosmo
+---
+
+### Homework
+
+* [HW1]()
