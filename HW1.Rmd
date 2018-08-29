@@ -2,7 +2,9 @@
 title: "HW1"
 author: "C. Nicholson"
 date: "8/29/2018"
-output: html_document
+output: 
+  html_document: 
+    theme: cosmo
 ---
 ```{r}
 
