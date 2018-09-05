@@ -10,11 +10,67 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Path diagram of research ideas
-This path diagram illustrates how beta-diversity can change as the result of local species gains (additive processes) or local species losses (subtractive processes).
+This path diagram illustrates how beta-diversity can change as the result of local species gains (additive processes) or local species losses (subtractive processes).  
 
 These losses or gains can be influenced by land use change, such as urbanization. Land use driven beta-diversity change can result in the homogenization or heteogenization of natural communities  
 
 
 
-![](Urbanization_flowchart.png)  
+![](Urbanization_flowchart.png)
 
+
+
+
+
+This flow chart was produced in Typora with mermaid. The code used to produce this chart is:  
+
+
+```
+graph TD
+### INITIAL NATURAL COMMUNITY
+init((natural community))-->A((<b>urbanization))
+
+### EFFECT OF URBANIZATION
+A((urbanization)) --> B((Subtractive <br/><b>heterogenization))
+A --> C((additive <br/><b>heterogenization))
+A --> D((subtractive <br/><b>homogenization))
+A --> E((additive <br/><b>homogenization))
+
+### HOMOGENIZATION
+subgraph HOMOGENIZATION
+D --> cond3((rare species <br/>disappear from sites))
+E --> cond4((similar species <br/>become widespread))
+end
+
+cond3 --> eff2(&#946-diversity<br/><b> decreases)
+cond4 --> eff2(&#946-diversity<br/><b> decreases)
+
+### HETEROGENIZATION
+subgraph HETEROGENIZATION
+B --> cond1((ubiquitous species <br/>disappear from sites))
+C --> cond2((different species <br/>become widespread))
+end
+
+cond1 --> eff1(&#946-diversity<br/><b> increases)
+cond2 --> eff1(&#946-diversity<br/><b> increases)
+
+## STYLE ELEMENTS
+
+### NATURAL COMMUNITY
+style init fill:#609777,stroke:#333,stroke-width:2px;
+### URBANIZATION
+style A fill:#999999,stroke:#333,stroke-width:2px;
+### PROCESSES
+style B fill:#ecc13c,stroke:#333,stroke-width:2px;
+style C fill:#ecc13c,stroke:#333,stroke-width:2px;
+style D fill:#ecc13c,stroke:#333,stroke-width:2px;
+style E fill:#ecc13c,stroke:#333,stroke-width:2px;
+### EFFECT ON SPECIES
+style cond1 fill:#d8a019,stroke:#333,stroke-width:2px;
+style cond2 fill:#d8a019,stroke:#333,stroke-width:2px;
+style cond3 fill:#d8a019,stroke:#333,stroke-width:2px;
+style cond4 fill:#d8a019,stroke:#333,stroke-width:2px;
+### OUTCOME FOR REGIONAL BIODIVERSITY
+style eff1 fill:#d66f2a,stroke:#333,stroke-width:2px;
+style eff2 fill:#d66f2a,stroke:#333,stroke-width:2px;
+```
